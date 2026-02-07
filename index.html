@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <nav></nav>
+
+    <main>
+        <!--Div 1-->
+        <div id="div-adicionar-tarefa">
+            <h2>Criar tarefas</h2>
+            <textarea id="nome_tarefa" placeholder="Ex: Estudar Gastronomia" required></textarea>
+            <label>
+                <input type="radio" name="prioridade" value="Baixa">
+                Baixa
+            </label>
+            <label>
+                <input type="radio" name="prioridade" value="Média">
+                Média
+            </label>
+            <label>
+                <input type="radio" name="prioridade" value="Alta">
+                Alta
+            </label>
+            <button id="adicionar_tarefa" onclick="add_tarefa()">Adicionar nova tarefa</button>
+            <p id="error"></p>
+        </div>
+
+        <!--Div 2-->
+        <div id="container">
+            <h2>To-Do-List</h2>
+            <div id="to-do-list">
+                <ul id="tarefas"></ul>
+            
+            </div>
+        </div>
+    </main>
+</body>
+</html>

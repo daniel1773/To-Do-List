@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    width: auto;
+    margin-top: 10px;
+    margin-left: 25px;
+    display: flex;
+    align-items: flex-start; /*Apenas 'textarea' cresce*/
+}
+
+/*Div 1*/
+#div-adicionar-tarefa {
+    width: 15rem;
+    background-color: white;
+    border: 1px solid green;
+    border-radius: 5px;
+    padding: 10px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+textarea {
+    resize: vertical;
+}
+#error {
+    color: red;
+    font-weight: 700;
+}
+
+/*Div 2*/
+#container {
+    width: 20rem;
+    height: auto;
+    color: rgb(8, 8, 193);
+    border: 1px solid mediumblue;
+    border-radius: 5px;
+    margin-left: 15em;
+    padding: 10px 30px;
+    text-align: center;
+}
+#to-do-list {
+    min-height: 70px;
+    background-color: rgba(218, 218, 218, 0.758);
+    padding: 5px;
+}
+ul {
+    text-align: start;
+}
+li {
+    list-style: none;
+}
