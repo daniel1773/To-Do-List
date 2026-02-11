@@ -48,7 +48,27 @@ textarea {
 }
 ul {
     text-align: start;
+    margin-left: 15px;
 }
 li {
-    list-style: none;
+    margin-bottom: 5px;
+    text-transform: lowercase;
+}
+li::first-letter {
+    text-transform: uppercase;
+}
+
+/*Prioridades*/
+.alta, .média, .baixa {
+    text-transform: capitalize;
+}
+.alta {
+    color: red;
+    font-weight: 700;
+}
+.média {
+    color: orange;
+}
+.baixa {
+    color: green;
 }
