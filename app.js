@@ -26,3 +26,10 @@ function add_tarefa(){
     li.appendChild(span_prioridade);
     ul_tarefas.appendChild(li);
 }
+
+
+const btn_tema = document.getElementById("btn-mudar-tema");
+
+btn_tema.addEventListener("click", ()=>{
+    document.body.classList.toggle("dark");
+})
