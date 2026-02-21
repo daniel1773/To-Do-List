@@ -1,3 +1,4 @@
+// Adicionando novas tarefas
 const error = document.getElementById("error");
 const ul_tarefas = document.getElementById("tarefas");
 const nome_tarefa = document.getElementById("nome_tarefa");
@@ -28,8 +29,30 @@ function add_tarefa(){
 }
 
 
+// Mudando tema claro/escuro
 const btn_tema = document.getElementById("btn-mudar-tema");
 
 btn_tema.addEventListener("click", ()=>{
     document.body.classList.toggle("dark");
 })
+
+
+// Excluindo tarefas
+function ativar_excluir_tarefas(){
+    ul_tarefas.classList.toggle("sem-marcador")
+
+    const li_tarefas = document.querySelectorAll("#tarefas li"); //seleciona todos os "li" da lista "tarefas"
+    const btn_X = document.querySelectorAll(".btn-delete");
+
+    if(btn_X.length === 0){
+        li_tarefas.forEach((li)=>{
+            const btn_delete = document.createElement("span");
+            btn_delete.textContent = "X";
+            btn_delete.classList.add("btn-delete");
+
+            li.prepend(btn_delete);
+        })
+    } else {
+        btn_X.forEach((X)=> X.remove())
+    }
+}

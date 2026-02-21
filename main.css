@@ -1,3 +1,15 @@
+/*Temas Claro e Escuro*/
+:root {
+    --main-color: #f2f2f2;
+    --second-color: #222831;
+}
+
+.dark {
+    --main-color: #222831;
+    --second-color: #f2f2f2;
+}
+
+
 * {
     margin: 0;
     padding: 0;
@@ -23,28 +35,26 @@ main {
     width: auto;
     margin-top: 10px;
     margin-left: 25px;
+    margin-right: 25px;
     display: flex;
     align-items: flex-start; /*Apenas 'textarea' cresce*/
+    justify-content: space-between;
 }
 
-/*Temas Claro e Escuro*/
-:root {
-    --main-color: #f2f2f2;
-    --second-color: #222831;
+
+/*Em comun (divs)*/
+#div-adicionar-tarefa, #div-ferramentas {
+    width: 15rem;
+    min-height: 12rem;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px 30px;
 }
 
-.dark {
-    --main-color: #222831;
-    --second-color: #f2f2f2;
-}
 
 /*Div 1*/
 #div-adicionar-tarefa {
-    width: 15rem;
-    background-color: white;
     border: 1px solid green;
-    border-radius: 5px;
-    padding: 10px 30px;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -57,6 +67,7 @@ textarea {
     font-weight: 700;
 }
 
+
 /*Div 2*/
 #container {
     width: 20rem;
@@ -65,7 +76,6 @@ textarea {
     color: rgb(8, 8, 193);
     border: 1px solid mediumblue;
     border-radius: 5px;
-    margin-left: 15em;
     padding: 10px 30px;
     text-align: center;
 }
@@ -78,12 +88,19 @@ ul {
     text-align: start;
     margin-left: 15px;
 }
+.sem-marcador {
+    list-style: none;
+}
 li {
     margin-bottom: 5px;
     text-transform: lowercase;
 }
 li::first-letter {
-    text-transform: uppercase;
+    text-transform: uppercase; /*apenas primeira letra como maiúscula*/
+}
+.btn-delete {
+    color: red;
+    font-weight: 600;
 }
 
 /*Prioridades*/
@@ -99,4 +116,10 @@ li::first-letter {
 }
 .baixa {
     color: green;
+}
+
+
+/*Div 3*/
+#div-ferramentas {
+    border: 1px solid #f96d00;
 }
