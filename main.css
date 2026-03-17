@@ -92,15 +92,16 @@ ul {
     list-style: none;
 }
 li {
+    width: 295px;
     margin-bottom: 5px;
-    text-transform: lowercase;
-}
-li::first-letter {
-    text-transform: uppercase; /*apenas primeira letra como maiúscula*/
+    display: flex;
+    flex-wrap: wrap;
 }
 .btn-delete {
+    background-color: rgba(156, 26, 26, 0.87);
     color: red;
     font-weight: 600;
+    margin-left: auto;
 }
 
 /*Prioridades*/
