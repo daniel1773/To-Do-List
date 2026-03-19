@@ -4,8 +4,17 @@ const ul_tarefas = document.getElementById("tarefas");
 const nome_tarefa = document.getElementById("nome_tarefa");
 const prioridade_tarefa = document.getElementsByName("prioridade"); //Retorna uma lista
 
+
+
+// Limpar "textarea"
+function limpar_textarea_tarefa(input_texto){
+    input_texto.value = ""; // "value" mexe na parte interna do objeto, "textContent" mexe na parte HTML
+}
+
+
+
 // Adicionando tarefas
-function add_tarefa(){  
+function adicionar_tarefa(){  
     const span_prioridade = document.createElement("span");
     let prioridade_selecionada = "";
     
@@ -30,7 +39,10 @@ function add_tarefa(){
     li.appendChild(span_nome_tarefa);
     li.appendChild(span_prioridade);
     ul_tarefas.appendChild(li);
+
+    limpar_textarea_tarefa(nome_tarefa);
 }
+
 
 
 // Mudando tema claro/escuro
@@ -41,21 +53,54 @@ btn_tema.addEventListener("click", ()=>{
 })
 
 
-// Excluindo tarefas
-function remove_tarefa(){
-    ul_tarefas.classList.toggle("sem-marcador")
 
-    const li_tarefas = document.querySelectorAll("#tarefas li"); //seleciona todos os "li" da lista "tarefas"
+// Ferramenta de excluir tarefas
+let modo_excluir = null;
+
+function ativar_excluir_tarefas(){
+    ul_tarefas.classList.toggle("sem-marcador");
+    adicionar_botoes_excluir();
+
+    modo_excluir = true;
+}
+
+function desativar_excluir_tarefas(){
+    const todos_btn_delete = document.querySelectorAll(".btn-delete");
+
+    todos_btn_delete.forEach((btn)=>{
+        btn.remove();
+    });
+
+    modo_excluir = false;
+}
+
+function adicionar_botoes_excluir(){
+    const li_tarefas = document.querySelectorAll("#tarefas li"); //seleciona todos os "li" com ID "tarefas" em forma de NodeList
 
     li_tarefas.forEach((li)=>{
+        if(li.querySelector(".btn-delete")){
+            return;
+        } //resolve o problema de criar botoes duplicados
+
         const btn_delete = document.createElement("button");
         btn_delete.textContent = "❌";
         btn_delete.classList.add("btn-delete");
 
+        li.appendChild(btn_delete);
+        
+        //exclui o "li" que o botao está atualmente
         btn_delete.onclick = ()=>{
             li.remove();
         }
-
-        li.appendChild(btn_delete);
     })
+}
+
+/// Alternar "onclick" entre "ativar" e "desativar"
+function alternar_modo_excluir(){
+    if(modo_excluir == false || modo_excluir == null){
+        ativar_excluir_tarefas();
+    }
+    else if(modo_excluir == true){
+        desativar_excluir_tarefas();
+    }
 }
